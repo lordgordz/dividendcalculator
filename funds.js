@@ -10,7 +10,7 @@ window.AIA_FUNDS = {
     { name: 'AIA Global Adventurous Fund SGD', page: '', docs: [] },
     { name: 'AIA Adventurous Index Fund SGD', page: '',
       docs: [['Flyer', 'https://aia.com.sg/content/dam/sg-wise/en/docs/our-products/save-and-invest/aia-ilp-fund-prices/aia-adventurous-index-fund-flyer.pdf']] },
-    { name: 'AIA Regional Equity Fund SGD', page: '', docs: [] }
+    { name: 'AIA Regional Equity Fund SGD', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-regional-equity-fund', docs: [] }
   ],
   other: [
     { name: 'AIA Elite Adventurous Fund SGD', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-elite-adventurous-fund-sgd', docs: [] },
