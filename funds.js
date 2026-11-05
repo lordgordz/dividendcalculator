@@ -24,7 +24,7 @@ window.AIA_FUNDS = {
     { name: 'AIA US Equity Fund', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-us-equity-fund', docs: [] },
     { name: 'AIA Global Technology Fund', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-global-technology-fund', docs: [] },
     { name: 'AIA European Equity Fund', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-european-equity-fund', docs: [] },
-    { name: 'AIA Emerging Markets Equity Fund', page: '', docs: [] },
+    { name: 'AIA Emerging Markets Equity Fund', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-emerging-markets-equity-fund', docs: [] },
     { name: 'AIA Emerging Markets Balanced Fund', page: '', docs: [] },
     { name: 'AIA Greater China Equity Fund', page: '', docs: [] },
     { name: 'AIA International Health Care Fund', page: '', docs: [] },
