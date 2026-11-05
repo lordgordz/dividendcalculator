@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0b1f3a">
 <title>Dividend Illustration Calculator</title>
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 <header class="top">
@@ -16,6 +16,7 @@
       <button role="tab" data-tab="single" class="on">Single Product</button>
       <button role="tab" data-tab="mixed">Mixed Planning</button>
       <button role="tab" data-tab="compare">Compare</button>
+      <button role="tab" data-tab="funds">Funds</button>
     </nav>
   </div>
 </header>
@@ -93,14 +94,36 @@
     <div id="c-out"></div>
   </div>
 
+  <!-- FUNDS -->
+  <div class="tab" id="tab-funds" hidden>
+    <section class="card">
+      <h2>Main funds</h2>
+      <p class="hint">Quick links to AIA Singapore. Open a fund's page on AIA to see its current price — prices are for reference only; the AIA website is the official source.</p>
+      <div class="fundgrid" id="f-main"></div>
+    </section>
+    <section class="card">
+      <div class="sec-h"><h2>Other AIA funds</h2><a class="btn ghost" id="f-all" target="_blank" rel="noopener">Browse all AIA funds ↗</a></div>
+      <label>Search<input id="f-search" type="search" placeholder="Type a fund name" autocomplete="off"></label>
+      <div class="fundlist" id="f-other"></div>
+    </section>
+    <section class="card">
+      <h2>Add a fund link</h2>
+      <p class="hint">Missing a fund, or want a direct link for one above? Paste it here. It is saved on this device only.</p>
+      <div class="grid g4"><label>Fund name<input id="f-newName" type="text" placeholder="e.g. AIA Global Dynamic Income Fund SGD"></label>
+      <label>Link (https://…)<input id="f-newUrl" type="url" placeholder="https://www.aia.com.sg/…" inputmode="url"></label>
+      <label>&nbsp;<button class="btn" id="f-add" type="button" style="height:46px">Add</button></label></div>
+    </section>
+  </div>
+
   <section class="card disclaimer" id="disc">
     <h2>Important notice</h2>
     <p>All dividends shown are <b>non-guaranteed</b> and based on projections. Fund price is subject to market fluctuations; for the purposes of this illustration the fund price is assumed to remain at <b>$1</b> throughout. Figures depend entirely on the inputs entered above and are for discussion purposes only.</p>
-    <p class="hint">Nothing entered here is stored or sent anywhere — it stays in this browser tab.</p>
+    <p class="hint">Calculator inputs are not stored or sent anywhere — they stay in this browser tab.</p>
   </section>
   <div class="actions"><button class="btn" id="printBtn">Print / Save as PDF</button></div>
 </main>
-<script src="engine.js?v=5"></script>
-<script src="app.js?v=5"></script>
+<script src="engine.js?v=6"></script>
+<script src="funds.js?v=6"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>

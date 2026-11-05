@@ -57,3 +57,12 @@ input[type=date]::-webkit-date-and-time-value{text-align:left;margin:0;padding:0
 input[type=date]::-webkit-datetime-edit{padding:0;line-height:normal}
 input[type=date]::-webkit-datetime-edit-fields-wrapper{padding:0}
 input,select{text-align:left}
+
+a.btn{display:inline-block;text-decoration:none;text-align:center;padding:10px 14px;font-size:13px}
+.btn.ghost{background:transparent;color:var(--navy2);border:1px solid var(--line)}@media (prefers-color-scheme:dark){.btn.ghost{color:var(--gold2)}}
+button.btn.ghost{cursor:pointer}
+.fundgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}
+.fund{border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--card)}
+.fund .fn,.frow .fn{font-weight:600}.fb{display:flex;flex-wrap:wrap;gap:8px}.fund .hint{margin:0}
+.fundlist{margin-top:12px;border:1px solid var(--line);border-radius:12px}.frow{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px;border-bottom:1px solid var(--line)}.frow:last-child{border-bottom:0}
+input[type=search]{-webkit-appearance:none}

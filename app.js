@@ -136,12 +136,29 @@ function renderCompare(){
   chart($('c-chart'),ids.map((i,k)=>({name:P[i].short,values:res[k].map(r=>r.total)})),res[0].map((_,i)=>'Y'+(i+1)));
 }
 
+// ---------- funds ----------
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function customFunds(){try{return JSON.parse(localStorage.getItem('aiaCustomFunds')||'[]')}catch(e){return []}}
+function saveCustom(l){try{localStorage.setItem('aiaCustomFunds',JSON.stringify(l))}catch(e){}}
+function fundBtns(f,M){const b=[];if(f.page)b.push(`<a class="btn" href="${esc(f.page)}" target="_blank" rel="noopener">Open fund page ↗</a>`);else b.push(`<a class="btn ghost" href="${esc(M)}" target="_blank" rel="noopener" title="Direct link not added yet — opens AIA's full fund list">Find on AIA ↗</a>`);
+  (f.docs||[]).forEach(d=>b.push(`<a class="btn ghost" href="${esc(d[1])}" target="_blank" rel="noopener">${esc(d[0])} ↗</a>`));return b.join('')}
+function renderFunds(){
+  const F=window.AIA_FUNDS,M=F.master;$('f-all').href=M;
+  $('f-main').innerHTML=F.main.map(f=>`<div class="fund"><div class="fn">${esc(f.name)}</div><div class="fb">${fundBtns(f,M)}</div>${f.page?'':'<div class="hint">No direct link yet — add one below.</div>'}</div>`).join('');
+  const q=($('f-search').value||'').toLowerCase();const cust=customFunds().map((c,i)=>({name:c.name,page:c.url,docs:[],custom:i}));
+  const list=F.other.concat(cust).filter(f=>f.name.toLowerCase().includes(q));
+  $('f-other').innerHTML=list.length?list.map(f=>`<div class="frow"><span class="fn">${esc(f.name)}${f.custom!==undefined?' <span class="pill">added</span>':''}</span><span class="fb">${fundBtns(f,M)}${f.custom!==undefined?`<button class="btn ghost" data-del="${f.custom}" type="button">Remove</button>`:''}</span></div>`).join(''):'<p class="hint">No match — try "Browse all AIA funds".</p>';
+  $('f-other').querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{const l=customFunds();l.splice(+b.dataset.del,1);saveCustom(l);renderFunds()});
+}
+$('f-search').addEventListener('input',renderFunds);
+$('f-add').onclick=()=>{const n=$('f-newName').value.trim(),u=$('f-newUrl').value.trim();if(!n||!/^https?:\/\//i.test(u)){alert('Enter a fund name and a link starting with https://');return}const l=customFunds();l.push({name:n,url:u});saveCustom(l);$('f-newName').value='';$('f-newUrl').value='';renderFunds()};
+
 // ---------- wiring ----------
 function renderAll(){
   const yrs=E.horizon(age());$('horizonHint').textContent=`Projection runs to age 100 (${yrs} years), capped at 85 years.`;$('showYear').max=yrs;
-  if(tab==='single')renderSingle();else if(tab==='mixed')renderMixed();else renderCompare();
+  $('profile').hidden=tab==='funds';$('disc').hidden=tab==='funds';if(tab==='single')renderSingle();else if(tab==='mixed')renderMixed();else if(tab==='compare')renderCompare();else renderFunds();
 }
-document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{tab=b.dataset.tab;document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));['single','mixed','compare'].forEach(t=>$('tab-'+t).hidden=t!==tab);renderAll()});
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{tab=b.dataset.tab;document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));['single','mixed','compare','funds'].forEach(t=>$('tab-'+t).hidden=t!==tab);renderAll()});
 document.querySelectorAll('input,select').forEach(el=>{el.addEventListener('input',()=>{clearTimeout(window.__t);window.__t=setTimeout(renderAll,120)});el.addEventListener('change',renderAll)});
 $('printBtn').onclick=()=>{document.querySelectorAll('details.wd').forEach(d=>{});window.print()};
 renderAll();
