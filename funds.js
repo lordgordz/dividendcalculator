@@ -27,7 +27,7 @@ window.AIA_FUNDS = {
     { name: 'AIA Emerging Markets Equity Fund', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-emerging-markets-equity-fund', docs: [] },
     { name: 'AIA Emerging Markets Balanced Fund', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-emerging-markets-balanced-fund', docs: [] },
     { name: 'AIA Greater China Equity Fund', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-greater-china-equity-fund', docs: [] },
-    { name: 'AIA International Health Care Fund', page: '', docs: [] },
+    { name: 'AIA International Health Care Fund', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-international-health-care-fund', docs: [] },
     { name: 'AIA Growth Fund', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-growth-fund',
       docs: [] },
     { name: 'AIA S Money Market Fund', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-S-money-market-fund', docs: [] },
