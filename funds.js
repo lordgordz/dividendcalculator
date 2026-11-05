@@ -7,13 +7,12 @@ window.AIA_FUNDS = {
       docs: [['Flyer', 'https://www.aia.com.sg/content/dam/sg-wise/en/docs/our-products/save-and-invest/aia-ilp-fund-prices/aia-global-adventurous-income-fund-flyer.pdf']] },
     { name: 'AIA Global Dynamic Income Fund SGD', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-global-dynamic-income-fund',
       docs: [['Flyer', 'https://www.aia.com.sg/content/dam/sg/en/docs/product_brochures/investments/aia-global-dynamic-income-fund-flyer.pdf']] },
-    { name: 'AIA Global Adventurous Fund SGD', page: '', docs: [] },
+    { name: 'AIA Elite Adventurous Fund SGD', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-elite-adventurous-fund-sgd', docs: [] },
     { name: 'AIA Adventurous Index Fund SGD', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-adventurous-index-fund',
       docs: [['Flyer', 'https://aia.com.sg/content/dam/sg-wise/en/docs/our-products/save-and-invest/aia-ilp-fund-prices/aia-adventurous-index-fund-flyer.pdf']] },
     { name: 'AIA Regional Equity Fund SGD', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-regional-equity-fund', docs: [] }
   ],
   other: [
-    { name: 'AIA Elite Adventurous Fund SGD', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-elite-adventurous-fund-sgd', docs: [] },
     { name: 'AIA Growth Fund', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-growth-fund',
       docs: [['Factsheet', 'https://myaia.aia.com.sg/content/dam/sg/en/docs/aia-ilp-funds-overview/latest/AIA-Growth-Fund-Factsheet.pdf']] },
     { name: 'AIA S Money Market Fund', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-S-money-market-fund', docs: [] },
