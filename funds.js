@@ -8,7 +8,7 @@ window.AIA_FUNDS = {
     { name: 'AIA Global Dynamic Income Fund SGD', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-global-dynamic-income-fund',
       docs: [['Flyer', 'https://www.aia.com.sg/content/dam/sg/en/docs/product_brochures/investments/aia-global-dynamic-income-fund-flyer.pdf']] },
     { name: 'AIA Global Adventurous Fund SGD', page: '', docs: [] },
-    { name: 'AIA Adventurous Index Fund SGD', page: '',
+    { name: 'AIA Adventurous Index Fund SGD', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-adventurous-index-fund',
       docs: [['Flyer', 'https://aia.com.sg/content/dam/sg-wise/en/docs/our-products/save-and-invest/aia-ilp-fund-prices/aia-adventurous-index-fund-flyer.pdf']] },
     { name: 'AIA Regional Equity Fund SGD', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-regional-equity-fund', docs: [] }
   ],
