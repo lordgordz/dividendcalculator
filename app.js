@@ -146,7 +146,7 @@ function renderFunds(){
   const F=window.AIA_FUNDS,M=F.master;$('f-all').href=M;
   $('f-main').innerHTML=F.main.map(f=>`<div class="fund"><div class="fn">${esc(f.name)}</div><div class="fb">${fundBtns(f,M)}</div>${f.page?'':'<div class="hint">No direct link yet — add one below.</div>'}</div>`).join('');
   const q=($('f-search').value||'').toLowerCase();const cust=customFunds().map((c,i)=>({name:c.name,page:c.url,docs:[],custom:i}));
-  const list=F.other.concat(cust).filter(f=>f.name.toLowerCase().includes(q));
+  const list=F.other.concat(cust).filter(f=>f.name.toLowerCase().includes(q)).sort((x,y)=>x.name.localeCompare(y.name));
   $('f-other').innerHTML=list.length?list.map(f=>`<div class="frow"><span class="fn">${esc(f.name)}${f.custom!==undefined?' <span class="pill">added</span>':''}</span><span class="fb">${fundBtns(f,M)}${f.custom!==undefined?`<button class="btn ghost" data-del="${f.custom}" type="button">Remove</button>`:''}</span></div>`).join(''):'<p class="hint">No match — try "Browse all AIA funds".</p>';
   $('f-other').querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{const l=customFunds();l.splice(+b.dataset.del,1);saveCustom(l);renderFunds()});
 }
