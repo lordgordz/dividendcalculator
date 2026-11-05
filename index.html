@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0b1f3a">
+<title>Dividend Illustration Calculator</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><span class="mark">◆</span><div><h1>Dividend Benefit Illustration</h1><p>Standalone calculator · all figures in SGD</p></div></div>
+    <nav class="tabs" role="tablist">
+      <button role="tab" data-tab="single" class="on">Single Product</button>
+      <button role="tab" data-tab="mixed">Mixed Planning</button>
+      <button role="tab" data-tab="compare">Compare</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card" id="profile">
+    <h2>Client</h2>
+    <div class="grid g4">
+      <label>Client name<input id="name" type="text" placeholder="Optional" autocomplete="off"></label>
+      <label>Current age<input id="age" type="number" min="0" max="99" value="45" inputmode="numeric"></label>
+      <label>Start date<input id="date" type="date"></label>
+      <label>Show results at year<input id="showYear" type="number" min="1" value="20" inputmode="numeric"></label>
+    </div>
+    <p class="hint" id="horizonHint"></p>
+  </section>
+
+  <!-- SINGLE -->
+  <div class="tab on" id="tab-single">
+    <section class="card">
+      <h2>Product</h2>
+      <div class="grid g4">
+        <label>Product<select id="s-product"></select></label>
+        <label><span id="s-amountLabel">Amount</span><input id="s-amount" type="number" min="0" step="100" value="100000" inputmode="numeric"></label>
+        <label id="s-freqWrap">Premium frequency<select id="s-freq"><option>Yearly</option><option>Semi-Annual</option><option>Quarterly</option><option>Monthly</option></select></label>
+        <label>Dividend option<select id="s-option"><option>Reinvest</option><option>Cash out</option></select></label>
+      </div>
+      <p class="warn" id="s-warn" hidden></p>
+      <details class="wd"><summary>Ad-hoc withdrawals <span class="pill" id="s-wdCount">none</span></summary>
+        <p class="hint">Dividends are used first, then capital once the lock-in has passed. Enter the policy year and the amount withdrawn in that year.</p>
+        <div class="wdgrid" id="s-wd"></div>
+      </details>
+    </section>
+    <div id="s-out"></div>
+  </div>
+
+  <!-- MIXED -->
+  <div class="tab" id="tab-mixed" hidden>
+    <section class="card">
+      <h2>Mixed Planning</h2>
+      <p class="hint">A regular-pay plan paired with a lump-sum policy. Year 1's premium comes from cash; each later premium is withdrawn from the lump sum (capital first, then dividends).</p>
+      <div class="grid g4">
+        <label>Regular-pay product<select id="m-reg"></select></label>
+        <label>Regular annual premium<input id="m-prem" type="number" min="0" step="100" value="42000" inputmode="numeric"></label>
+        <label>Lump-sum product<select id="m-lump"></select></label>
+        <label>Lump-sum amount<input id="m-lumpAmt" type="number" min="0" step="1000" value="258000" inputmode="numeric"></label>
+        <label>Dividend option — regular side<select id="m-regOpt"><option>Reinvest</option><option>Cash out</option></select></label>
+        <label>Dividend option — lump-sum side<select id="m-lumpOpt"><option>Reinvest</option><option>Cash out</option></select></label>
+      </div>
+      <p class="warn" id="m-warn" hidden></p>
+      <details class="wd"><summary>Ad-hoc withdrawals <span class="pill" id="m-wdCount">none</span></summary>
+        <p class="hint">Draw order: lump-sum dividends → lump-sum capital → regular dividends → regular capital (regular capital only once its lock-in has passed).</p>
+        <div class="wdgrid" id="m-wd"></div>
+      </details>
+    </section>
+    <div id="m-out"></div>
+  </div>
+
+  <!-- COMPARE -->
+  <div class="tab" id="tab-compare" hidden>
+    <section class="card">
+      <h2>Compare products</h2>
+      <div class="grid g4">
+        <label>Premium frequency (5-Pay / 8-Pay)<select id="c-freq"><option>Yearly</option><option>Semi-Annual</option><option>Quarterly</option><option>Monthly</option></select></label>
+        <label>Dividend option<select id="c-option"><option>Reinvest</option><option>Cash out</option></select></label>
+      </div>
+      <div class="grid g4" style="margin-top:12px">
+        <label>Single Premium — amount<input id="c-SP" type="number" value="100000" inputmode="numeric"></label>
+        <label>5-Pay — annual premium<input id="c-FP" type="number" value="24000" inputmode="numeric"></label>
+        <label>8-Pay — annual premium<input id="c-EP" type="number" value="12000" inputmode="numeric"></label>
+        <label>2-Pay — annual premium<input id="c-TP" type="number" value="60000" inputmode="numeric"></label>
+      </div>
+      <p class="warn" id="c-warn" hidden></p>
+    </section>
+    <div id="c-out"></div>
+  </div>
+
+  <section class="card disclaimer" id="disc">
+    <h2>Important notice</h2>
+    <p>All dividends shown are <b>non-guaranteed</b> and based on projections. Fund price is subject to market fluctuations; for the purposes of this illustration the fund price is assumed to remain at <b>$1</b> throughout. Figures depend entirely on the inputs entered above and are for discussion purposes only.</p>
+    <p class="hint">Nothing entered here is stored or sent anywhere — it stays in this browser tab.</p>
+  </section>
+  <div class="actions"><button class="btn" id="printBtn">Print / Save as PDF</button></div>
+</main>
+<script src="engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
