@@ -5,7 +5,7 @@ window.AIA_FUNDS = {
   main: [
     { name: 'AIA Global Adventurous Income Fund SGD', page: 'https://aia.com.sg/en/our-products/save-and-invest/aia-funds-information/featured-funds/aia-global-adventurous-income-fund',
       docs: [['Flyer', 'https://www.aia.com.sg/content/dam/sg-wise/en/docs/our-products/save-and-invest/aia-ilp-fund-prices/aia-global-adventurous-income-fund-flyer.pdf']] },
-    { name: 'AIA Global Dynamic Income Fund SGD', page: '',
+    { name: 'AIA Global Dynamic Income Fund SGD', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-global-dynamic-income-fund',
       docs: [['Flyer', 'https://www.aia.com.sg/content/dam/sg/en/docs/product_brochures/investments/aia-global-dynamic-income-fund-flyer.pdf']] },
     { name: 'AIA Global Adventurous Fund SGD', page: '', docs: [] },
     { name: 'AIA Adventurous Index Fund SGD', page: '',
