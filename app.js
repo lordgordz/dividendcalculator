@@ -49,7 +49,7 @@ function renderSingle(){
   const pid=$('s-product').value,p=P[pid],A=parseFloat($('s-amount').value)||0,opt=$('s-option').value,freq=$('s-freq').value;
   $('s-amountLabel').textContent=p.kind==='regular'?'Annual premium':'Investment amount';
   $('s-freqWrap').style.display=(pid==='FP'||pid==='EP')?'':'none';
-  const m=E.checkMin(pid,A);const w=$('s-warn');w.hidden=!m;if(m)w.textContent='⚠ '+m;
+  const info=p.kind==='regular'?`${p.rate*100}% p.a. dividends paid quarterly · ${p.term} years of premium · minimum $${p.min.toLocaleString('en-US')} a year`:`${p.rate*100}% p.a. dividends paid quarterly · single payment`+(p.min?` · minimum $${p.min.toLocaleString('en-US')}`:'')+(p.admin?` · ${p.admin*100}% admin charge`:' · no admin charge');$('s-info').textContent=info+(p.lock?` · capital locked until year ${p.lock}`:'');const m=E.checkMin(pid,A);const w=$('s-warn');w.hidden=!m;if(m)w.textContent='⚠ '+m;
   const yrs=E.horizon(age()),sel=Math.min(Math.max(1,parseInt($('showYear').value,10)||yrs),yrs);
   const wd=readWd('s-wd');setWdCount('s-wdCount',wd.length);
   const o={product:pid,amount:A,invDate:dateVal(),freq,option:opt,years:yrs};
@@ -133,7 +133,7 @@ function renderCompare(){
   let h=`<section class="card cmp"><h2>At year ${sel} · age ${age()+sel}</h2><p class="disc-top"><b>Non-guaranteed.</b> Dividends are projections only; fund price is assumed to stay at $1 throughout.</p>${table(['Metric'].concat(ids.map(i=>P[i].name)),tr)}</section>`;
   h+=`<section class="card"><h2>Total account value over time</h2><div id="c-chart"></div></section>`;
   $('c-out').innerHTML=h;
-  chart($('c-chart'),ids.map((i,k)=>({name:P[i].name.replace(/ \(.*/,''),values:res[k].map(r=>r.total)})),res[0].map((_,i)=>'Y'+(i+1)));
+  chart($('c-chart'),ids.map((i,k)=>({name:P[i].short,values:res[k].map(r=>r.total)})),res[0].map((_,i)=>'Y'+(i+1)));
 }
 
 // ---------- wiring ----------

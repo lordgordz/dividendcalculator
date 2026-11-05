@@ -3,14 +3,14 @@
 (function (root) {
   'use strict';
   const P = {
-    SP:  { id: 'SP',  name: 'Single Premium (5% p.a.)',  rate: 0.05, kind: 'lump', admin: 0.03, lock: 0, min: 0 },
-    AH:  { id: 'AH',  name: 'Ad-Hoc Top Up (7% p.a.)',   rate: 0.07, kind: 'lump', admin: 0.03, lock: 0, min: 0 },
-    FP:  { id: 'FP',  name: '5-Pay (7% p.a.)',           rate: 0.07, kind: 'regular', term: 5, lock: 8,  min: 18000 },
-    EP:  { id: 'EP',  name: '8-Pay (7% p.a.)',           rate: 0.07, kind: 'regular', term: 8, lock: 11, min: 7800 },
-    TP:  { id: 'TP',  name: '2-Pay (7% p.a.)',           rate: 0.07, kind: 'regular', term: 2, lock: 8,  min: 48000, yearlyOnly: true },
-    SRS: { id: 'SRS', name: 'SRS Single Pay (7% p.a.)',  rate: 0.07, kind: 'lump', admin: 0,    lock: 8,  min: 15000 }
+    SP:  { id: 'SP',  name: 'Invest Easy Cash', short: 'Invest Easy Cash', legacy: 'Single Premium (5% p.a.)',  rate: 0.05, kind: 'lump', admin: 0.03, lock: 0, min: 0 },
+    AH:  { id: 'AH',  name: 'Ad-Hoc Top Up (7% p.a.)', short: 'Ad-Hoc Top Up', legacy: 'Ad-Hoc Top Up (7% p.a.)',   rate: 0.07, kind: 'lump', admin: 0.03, lock: 0, min: 0 },
+    FP:  { id: 'FP',  name: 'AIA Platinum Wealth Venture 3.0 (5-pay)', short: 'Wealth Venture 3.0 (5-pay)', legacy: '5-Pay (7% p.a.)',           rate: 0.07, kind: 'regular', term: 5, lock: 8,  min: 18000 },
+    EP:  { id: 'EP',  name: 'AIA Wealth Venture', short: 'AIA Wealth Venture', legacy: '8-Pay (7% p.a.)',           rate: 0.07, kind: 'regular', term: 8, lock: 11, min: 7800 },
+    TP:  { id: 'TP',  name: 'AIA Platinum Wealth Venture 3.0 (2-pay)', short: 'Wealth Venture 3.0 (2-pay)', legacy: '2-Pay (7% p.a.)',           rate: 0.07, kind: 'regular', term: 2, lock: 8,  min: 48000, yearlyOnly: true },
+    SRS: { id: 'SRS', name: 'AIA Platinum Wealth Venture 3.0 (SRS)', short: 'Wealth Venture 3.0 (SRS)', legacy: 'SRS Single Pay (7% p.a.)',  rate: 0.07, kind: 'lump', admin: 0,    lock: 8,  min: 15000 }
   };
-  const BY_NAME = {}; Object.values(P).forEach(p => BY_NAME[p.name] = p);
+  const BY_NAME = {}; Object.values(P).forEach(p => { BY_NAME[p.name] = p; BY_NAME[p.legacy] = p; });
   const PER = { 'Yearly': 1, 'Semi-Annual': 2, 'Quarterly': 4, 'Monthly': 12 };
 
   // ---- dates (UTC) ----
@@ -38,7 +38,7 @@
   }
   function checkMin(id, amount) {
     const p = P[id]; if (!p.min) return null;
-    if (amount < p.min) return `Below the $${p.min.toLocaleString('en-US')} minimum ${p.kind === 'regular' ? 'annual premium' : 'amount'} for ${p.name.replace(/ \(.*/, '')}`;
+    if (amount < p.min) return `Below the $${p.min.toLocaleString('en-US')} minimum ${p.kind === 'regular' ? 'annual premium' : 'amount'} for ${p.name}`;
     return null;
   }
 
