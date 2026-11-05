@@ -19,7 +19,7 @@ window.AIA_FUNDS = {
     { name: 'AIA Shariah Global Diversified Fund', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-shariah-global-diversified-fund', docs: [] },
     { name: 'AIA Multi Select 30', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-multi-select-30', docs: [] },
     { name: 'AIA Multi Select 70', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-multi-select-70', docs: [] },
-    { name: 'AIA Multi Select 50', page: '', docs: [] },
+    { name: 'AIA Multi Select 50', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-multi-select-50', docs: [] },
     { name: 'AIA Sustainable Multi-Thematic Fund', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-sustainable-multi-thematic-fund', docs: [] },
     { name: 'AIA US Equity Fund', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-us-equity-fund', docs: [] },
     { name: 'AIA Global Technology Fund', page: 'https://www.aia.com.sg/en/our-products/save-and-invest/aia-funds-information/aia-fund-price/aia-global-technology-fund', docs: [] },
