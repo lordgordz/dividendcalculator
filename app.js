@@ -141,7 +141,7 @@ const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'
 function customFunds(){try{return JSON.parse(localStorage.getItem('aiaCustomFunds')||'[]')}catch(e){return []}}
 function saveCustom(l){try{localStorage.setItem('aiaCustomFunds',JSON.stringify(l))}catch(e){}}
 function fundBtns(f,M){const b=[];if(f.page)b.push(`<a class="btn" href="${esc(f.page)}" target="_blank" rel="noopener">Open fund page ↗</a>`);else b.push(`<a class="btn ghost" href="${esc(M)}" target="_blank" rel="noopener" title="Direct link not added yet — opens AIA's full fund list">Find on AIA ↗</a>`);
-  (f.docs||[]).forEach(d=>b.push(`<a class="btn ghost" href="${esc(d[1])}" target="_blank" rel="noopener">${esc(d[0])} ↗</a>`));return b.join('')}
+  return b.join('')}
 function renderFunds(){
   const F=window.AIA_FUNDS,M=F.master;$('f-all').href=M;
   $('f-main').innerHTML=F.main.map(f=>`<div class="fund"><div class="fn">${esc(f.name)}</div><div class="fb">${fundBtns(f,M)}</div>${f.page?'':'<div class="hint">No direct link yet — add one below.</div>'}</div>`).join('');
