@@ -51,3 +51,9 @@ input[type=number]{-moz-appearance:textfield}input[type=number]::-webkit-outer-s
 input[type=date]{display:block;text-align:left;min-width:0}
 .grid{align-items:end}.grid label{min-width:0}
 .wdgrid .r{align-items:center}
+/* iOS Safari: centre date text vertically like the other fields */
+input[type=date]{display:flex;align-items:center;line-height:46px;padding-top:0;padding-bottom:0}
+input[type=date]::-webkit-date-and-time-value{text-align:left;margin:0;padding:0;min-height:1.4em;line-height:normal}
+input[type=date]::-webkit-datetime-edit{padding:0;line-height:normal}
+input[type=date]::-webkit-datetime-edit-fields-wrapper{padding:0}
+input,select{text-align:left}
